@@ -7,8 +7,7 @@
 
 
 14.  
-  1.  the department column in Course table, the course_number column in the Course table, the course number column in the Section table, and both course_number and prerequisite_number columns in the Prerequisite table. 
-
+  1.  TODO
 
   2.  TODO
 
