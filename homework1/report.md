@@ -16,11 +16,7 @@
 3\.  The database schema is the description of the database, whereas the database state is the data in a database in a particular moment in time.
 
 
-<<<<<<< HEAD
 7\.  __Menu-based interfaces for web clients or browsing:__ Using drop down menus allow customers to select the specific command they are looking for. Any website uses this style.
-=======
-7\.  __Menu-based interfaces for web clients or browsing:__ Using drop down menus allow customers to select the specific command they are looking for. Any website uses this style
->>>>>>> b2a07454a94f5bc703b0727a807d5be13306381c
 
 __Forms-based interfaces:__ Displays a form that the user would fill out with their own information. Any user trying to submit their information on a database would use this interface.
 
@@ -33,7 +29,6 @@ __Speech Input and Output:__ Speech is inputted, and a response with the data re
 __Interfaces for Parametric Users:__ Users in certain jobs use repetitive operations constantly through the day, and these interfaces make shortcuts and simpler key strokes to reduce the amount of typing these users would need to do. An example of this is a bank teller making a withdrawal from a bank account using software personally made for them.
 
 __Interfaces for the DBA:__ This is the interface for professionals only. They have the right to add, edit, and remove information from the database, as well as reorganize the structure of the database itself. This user it a professional who has a thorough understanding of the database at hand.
-
 
 
 14\.  This architecture must be friendly to the common user of a computer, as its purpose (selling airline tickets and making reservations) serves every ‘common user’. Therefore, I would use a GUI interface. In my GUI, I would have drop down menus with options that the user can use to guide themselves throughout the website, and a Forms-based interface for the user to fill in their information, as well as the flight information.
