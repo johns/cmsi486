@@ -48,4 +48,8 @@ __Interfaces for the DBA:__ This is the interface for professionals only. They h
 
 
 20\.  
+  1.  N/A
+
+  2.  N/A
+
   3.  Advantages to using a student ID instead of a SSN as a primary key are that they are unique to every student, they don't need to be kept as secure as a SSN, and they can be generated however the university would like. Disadvantages are that the user might forget their student ID, it could be used for many different purposes which would decrease its security, a compromising agent could figure out someone's ID if they found out how it was generated.
