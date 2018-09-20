@@ -7,7 +7,7 @@
 
 
 14\.  
-  1.  TODO
+  1.  The department column in Course table, the course_number column in the Course table, the course number column in the Section table, and both course_number and prerequisite_number columns in the Prerequisite table.
 
   2.  TODO
 
@@ -16,11 +16,11 @@
 3\.  The database schema is the description of the database, whereas the database state is the data in a database in a particular moment in time.
 
 
-7\.  __Menu-based interfaces for web clients or browsing:__ using drop down menus allow customers to select the specific command they are looking for. Any website uses this style
+7\.  __Menu-based interfaces for web clients or browsing:__ Using drop down menus allow customers to select the specific command they are looking for. Any website uses this style.
 
-__Forms-based interfaces:__ displays a form that the user would fill out with their own information. Any user trying to submit their information on a database would use this interface.
+__Forms-based interfaces:__ Displays a form that the user would fill out with their own information. Any user trying to submit their information on a database would use this interface.
 
-__Graphical User Interfaces:__ displays information in a diagrammatic form. This combines menu based systems and form based systems. Any user submitting legal documents or other personal information would use this interface.
+__Graphical User Interfaces:__ Displays information in a diagrammatic form. This combines menu based systems and form based systems. Any user submitting legal documents or other personal information would use this interface.
 
 __Natural Language Interfaces:__ Uses strings of natural language inputted by the user, and attempts to match the request with data that contains topics from the request string. Users use systems like these when they use google or any search engine.
 
