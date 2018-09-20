@@ -16,7 +16,11 @@
 3\.  The database schema is the description of the database, whereas the database state is the data in a database in a particular moment in time.
 
 
+<<<<<<< HEAD
 7\.  __Menu-based interfaces for web clients or browsing:__ Using drop down menus allow customers to select the specific command they are looking for. Any website uses this style.
+=======
+7\.  __Menu-based interfaces for web clients or browsing:__ Using drop down menus allow customers to select the specific command they are looking for. Any website uses this style
+>>>>>>> b2a07454a94f5bc703b0727a807d5be13306381c
 
 __Forms-based interfaces:__ Displays a form that the user would fill out with their own information. Any user trying to submit their information on a database would use this interface.
 
