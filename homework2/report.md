@@ -52,8 +52,11 @@
 > Concurrency control ensures that two transactions on the same parts of the data set does not occur simultaneously. This needed because users interacting with the same data can cause very costly errors. Without concurrency control, problems can occur in which data is changed while one user is still in the process of his transaction. For example, if two users try and buy the same tickets to a sports game, a lack of concurrency control could cause the ticket to be bought by the first user and the seat to change values before the second user can checkout.
 
 6\.  Discuss the atomicity, durability, isolation, and consistency preservations properties of a database transaction.
-
->  TODO
+> ACID are properties of database transactions that should be applied to any multiuser database.
+> Atomicity: The idea that a transaction should be performed as one full, uninterrupted unit. either all at once, or not at all.
+> Durability: Changes by the transaction should be reflected within the database. If a transaction fails (which it shouldn't), the system should continue to function.
+> Isolation: A transaction must be unaffected and untouched by other transactions happening concurrently.
+> Consistency: A transaction should complete from start to finish, and mustn't change the database until complete.
 
 
 ###  Chapter 4
