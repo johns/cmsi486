@@ -27,7 +27,7 @@ applications, it is possible to identify data items that will be stored in the d
 
 6\.  Consider an actual application of a database system of interest. [NOTE: this means pick one you are familiar with to use for this exercise.] Define the requirements of the different levels of users in terms of data needed, types of queries, and transactions to be processed.
 
->  TODO
+>  A possible application for a database system is managing a real-time group chat aspect of a mobile app. For example, a group chat application in PostgreSQL can require users to give various amounts of data, like name, age, Email, password, and any data transmitted in the actual messages sent between users. Types of queries may include looking up other users, searching through messages, and statistics about user profiles and/or messages. The most obvious example of transactions involve sending and receiving messages but other possible examples could be sending other users a friend request or sending another user an invite to a group chat.
 
 
 ###  Chapter 15
