@@ -33,7 +33,7 @@ applications, it is possible to identify data items that will be stored in the d
 ###  Chapter 15
 5\.  What is a functional dependency? What are the possible sources of the information that defines the functional dependencies that hold among the attributes of a relation schema?
 
->  TODO
+>  A functional dependency is a constraint between two sets of attributes from the database where one attribute uniquely determines the other attribute. For example, in the functional dependency X -> Y, the values of the X component that are subsets in R, are determine the values of the Y component, therefore making the the values of the Y component dependent on the values of the X component. 
 
 9\.  What undesirable dependencies are avoided when a relation is in 2NF?
 
