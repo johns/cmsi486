@@ -33,19 +33,20 @@ applications, it is possible to identify data items that will be stored in the d
 ###  Chapter 15
 5\.  What is a functional dependency? What are the possible sources of the information that defines the functional dependencies that hold among the attributes of a relation schema?
 
->  A functional dependency is a constraint between two sets of attributes from the database where one attribute uniquely determines the other attribute. The possible sources of the information that defines the functional dependencies are the values of the components. For example, in the functional dependency, A -> B, the values of the component, B, are dependent on the values of the component, A. 
+>  A functional dependency is a constraint between two sets of attributes from the database where one attribute uniquely determines the other attribute. The possible sources of the information that defines the functional dependencies are the values of the components. For example, in the functional dependency, A -> B, the values of the component, B, are dependent on the values of the component, A.
 
 9\.  What undesirable dependencies are avoided when a relation is in 2NF?
 
->  TODO
+>  When a relation is in second normal form, alongside being in first normal form, there are no repeating or redundant data across any rows in the same table by removing functional dependencies between the columns.  
 
 10\.  What undesirable dependencies are avoided when a relation is in 3NF?
 
->  TODO
+>  When a relation is in third normal form, it's in second normal form and if there isn't any data in any table that isn't dependent on the table's primary key.
 
 13\.  What is a multivalued dependency? When does it arise?
 
->  TODO
+>  A multivalued dependency is a consequence of first normal form, which disallows an attribute in a tuple to have a set of values, and therefore, the conversion from an unnormalized relation into first normal form.
+>  A multivalued dependency arises when the presence of one or more rows in a table implies the presence of one or more other rows in that same table.
 
 
 ###  Chapter 21
