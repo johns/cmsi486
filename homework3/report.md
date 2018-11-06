@@ -1,5 +1,5 @@
 ##  Homework 3
-####  Sam Chami, Merci Magallanes, and John Scott
+####  Merci Magallanes and John Scott
 
 
 ###  MongoDB Database Exercise
