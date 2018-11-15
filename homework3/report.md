@@ -7,16 +7,32 @@
 Use single queries for these, meaning you may NOT execute one query and then execute a second, third, fourth, ....., n'th query to determine maximums, minimums or counts.
 
 1.  What are the different collections in the Northwind database?
->  TODO
+>  \> use Northwind  
+switched to db Northwind  
+\> show collections  
+categories  
+customers  
+employee-territories  
+northwind  
+order-details  
+orders  
+products  
+regions  
+shippers  
+suppliers  
+territories
 
 2.  How many documents are in the "categories" collection?
->  TODO
+>  \> db.categories.count();  
+8
 
 3.  How many documents are in the "orders" collection?
->  TODO
+>  \> db.orders.count();  
+830
 
 4.  How many orders were handled by the person with EmployeeID number 8?
->  TODO
+>  \> db.orders.count({EmployeeID:8})  
+104
 
 5.  What is the last name of the employee who has the EmployeeID number 1?
 >  TODO
@@ -25,10 +41,42 @@ Use single queries for these, meaning you may NOT execute one query and then exe
 >  TODO
 
 7.  What are the Company Names of the suppliers?
->  TODO
+>  \> db.suppliers.distinct("CompanyName")  
+[  
+	"New Orleans Cajun Delights",  
+	"Grandma Kelly's Homestead",  
+	"Tokyo Traders",  
+	"Cooperativa de Quesos 'Las Cabras'",  
+	"Mayumi's",  
+	"Pavlova",  
+	"Specialty Biscuits",  
+	"PB Knäckebröd AB",  
+	"Refrescos Americanas LTDA",  
+	"Heli Süßwaren GmbH & Co. KG",  
+	"Plutzer Lebensmittelgroßmärkte AG",  
+	"Nord-Ost-Fisch Handelsgesellschaft mbH",  
+	"Exotic Liquids",  
+	"Formaggi Fortini s.r.l.",  
+	"Norske Meierier",  
+	"Bigfoot Breweries",  
+	"Aux joyeux ecclésiastiques",  
+	"Svensk Sjöföda AB",  
+	"Leka Trading",  
+	"Lyngbysild",  
+	"Zaanse Snoepfabriek",  
+	"Karkki Oy",  
+	"Pasta Buttini s.r.l.",  
+	"Escargots Nouveaux",  
+	"Gai pâturage",  
+	"G'day",  
+	"Ma Maison",  
+	"New England Seafood Cannery",  
+	"Forêts d'érables"  
+]  
 
 8.  How many suppliers are there?
->  TODO
+>  \> db.suppliers.count()  
+29
 
 9.  What is the supplier ID and phone number for the supplier in Boston, Mass.? Be sure NOT to include the ID of the document...
 >  TODO
