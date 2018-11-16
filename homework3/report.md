@@ -147,7 +147,7 @@ BONUS:
 Use single queries for these, meaning you may NOT execute one query and then execute a second, third, fourth, ....., n'th query to determine maximums, minimums or counts.
 
 1.  What are the different collections in the Northwind database?
->  TODO
+>  \> CALL db.labels() YIELD label RETURN label
 
 2.  How many documents are in the "categories" label set?
 >  \> MATCH (n:Category) RETURN count(n)
