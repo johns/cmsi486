@@ -151,15 +151,15 @@ Use single queries for these, meaning you may NOT execute one query and then exe
 >  TODO
 
 2.  How many documents are in the "categories" label set?
->  \> MATCH (n:Category) RETURN n
+>  \> MATCH (n:Category) RETURN count(n)
 8
 
 3.  How many documents are in the "orders" label set?
->  \> MATCH (n:Order) RETURN n
+>  \> MATCH (n:Order) RETURN count(n)
 830
 
 4.  How many orders were handled by the person with EmployeeID number 8?
->  \> MATCH (n:Orders) WHERE n.EmployeeID = '8' RETURN n
+>  \> MATCH (n:Orders) WHERE n.EmployeeID = '8' RETURN count(n)
 104
 
 5.  What is the last name of the employee who has the EmployeeID number 1?
@@ -255,8 +255,12 @@ Use single queries for these, meaning you may NOT execute one query and then exe
 └────────────────────────────────────────┘
 
 8.  How many suppliers are there?
->  \> MATCH (n:Supplier) RETURN n
-29
+>  \> MATCH (n:Supplier) RETURN count(n)
+╒══════════╕
+│"count(n)"│
+╞══════════╡
+│29        │
+└──────────┘
 
 9.  What is the supplier ID and phone number for the supplier in Boston, Mass.?
 >  \> MATCH (n:Suppliers) WHERE n.City = 'Boston' AND n.Region = 'MA' RETURN n.SupplierID, n.Phone
@@ -271,7 +275,11 @@ Use single queries for these, meaning you may NOT execute one query and then exe
 
 11.  How many territories have the RegionID value of "2"?  What are their territory descriptions? You can use two queries. Be sure to ONLY show the territory descriptions for that query.
 >  \> MATCH (n:Territory) WHERE n.regionID = '2' RETURN count(n)
-15
+╒══════════╕
+│"count(n)"│
+╞══════════╡
+│15        │
+└──────────┘
 \> MATCH (n:Territory) WHERE n.regionID = '2' RETURN n.territoryDescription
 ╒════════════════════════╕
 │"n.territoryDescription"│
@@ -308,7 +316,12 @@ Use single queries for these, meaning you may NOT execute one query and then exe
 └────────────────────────┘
 
 12.  What is the phone number of the shipper with the company name "United Package"? Be sure to ONLY include the phone number in the result.
->  TODO
+>  \> MATCH (n:Shipper) WHERE n.companyName = "United Package" RETURN n.phone
+╒════════════════╕
+│"n.phone"       │
+╞════════════════╡
+│"(503) 555-3199"│
+└────────────────┘
 
 BONUS:
 
