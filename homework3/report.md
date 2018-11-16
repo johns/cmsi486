@@ -23,25 +23,27 @@ suppliers
 territories
 
 2.  How many documents are in the "categories" collection?
->  \> db.categories.count();  
+>  \> db.categories.count()  
 8
 
 3.  How many documents are in the "orders" collection?
->  \> db.orders.count();  
+>  \> db.orders.count()  
 830
 
 4.  How many orders were handled by the person with EmployeeID number 8?
->  \> db.orders.count({EmployeeID:8})  
+>  \> db.orders.count( {EmployeeID: 8} )  
 104
 
 5.  What is the last name of the employee who has the EmployeeID number 1?
->  TODO
+>  \> db.employees.find( { EmployeeID: 1 }, { \_id: 0, LastName: 1 } )  
+{ "LastName" : "Davolio" }
 
 6.  What are the EmployeeID numbers on orders which have an OrderID less than 10300?
->  TODO
+>  \> db.orders.distinct( "EmployeeID", { "OrderID": { $lt: 10300 } } )  
+[ 5, 4, 3, 9, 1, 8, 6, 2, 7 ]
 
 7.  What are the Company Names of the suppliers?
->  \> db.suppliers.distinct("CompanyName")  
+>  \> db.suppliers.distinct( "CompanyName" )  
 [  
 	"New Orleans Cajun Delights",  
 	"Grandma Kelly's Homestead",  
@@ -79,24 +81,66 @@ territories
 29
 
 9.  What is the supplier ID and phone number for the supplier in Boston, Mass.? Be sure NOT to include the ID of the document...
->  TODO
+>  \> db.suppliers.find( { City: "Boston" }, { \_id: 0, SupplierID: 1, Phone: 1 } )  
+{ "SupplierID" : 19, "Phone" : "(617) 555-3267" }
 
 10.  What employee is responsible for the largest number of orders, and for how many orders is that employee responsible?
 >  TODO
 
 11.  How many territories have the RegionID value of "2"?  What are their territory descriptions? Be sure NOT to include the ID of the document, and ONLY show the territory descriptions.
->  TODO
+>  \> db.territories.count( { RegionID: 2 } )  
+15  
+\> db.territories.find( { RegionID: 2 }, { \_id: 0, TerritoryDescription: 1 } )  
+{ "TerritoryDescription" : "Chicago" }  
+{ "TerritoryDescription" : "Denver" }  
+{ "TerritoryDescription" : "HoffmanEstates" }  
+{ "TerritoryDescription" : "ColoradoSprings" }  
+{ "TerritoryDescription" : "Phoenix" }  
+{ "TerritoryDescription" : "Scottsdale" }  
+{ "TerritoryDescription" : "SantaMonica" }  
+{ "TerritoryDescription" : "MenloPark" }  
+{ "TerritoryDescription" : "Campbell" }  
+{ "TerritoryDescription" : "SanFrancisco" }  
+{ "TerritoryDescription" : "SantaClara" }  
+{ "TerritoryDescription" : "SantaCruz" }  
+{ "TerritoryDescription" : "Redmond" }  
+{ "TerritoryDescription" : "Bellevue" }  
+{ "TerritoryDescription" : "Seattle" }  
 
 12.  What is the phone number of the shipper with the company name "United Package"? Be sure NOT to include the ID of the document in the output, ONLY the phone number.
->  TODO
+>  \> db.shippers.find( { CompanyName: "United Package" }, { \_id: 0, Phone: 1 } )  
+{ "Phone" : "(503) 555-3199" }
 
 BONUS:
 
 13.  How many documents are in the "order-details" collection?  How many in the "employee-territories" collection?
->  TODO
+>  \> db["order-details"].count()  
+2155  
+>  \> db["employee-territories"].count()  
+49
 
 14.  How many orders were shipped to Albuquerque, NM?  What are the order numbers? Be sure NOT to include the ID of the document in the output, ONLY the Order ID numbers.
->  TODO
+>  \> db.orders.count( { ShipCity: "Albuquerque" } )  
+18  
+\> db.orders.find( { ShipCity: "Albuquerque" }, { \_id: 0, OrderID: 1 } )  
+{ "OrderID" : 10262 }  
+{ "OrderID" : 10272 }  
+{ "OrderID" : 10294 }  
+{ "OrderID" : 10314 }  
+{ "OrderID" : 10316 }  
+{ "OrderID" : 10346 }  
+{ "OrderID" : 10401 }  
+{ "OrderID" : 10479 }  
+{ "OrderID" : 10569 }  
+{ "OrderID" : 10564 }  
+{ "OrderID" : 10598 }  
+{ "OrderID" : 10761 }  
+{ "OrderID" : 10820 }  
+{ "OrderID" : 10852 }  
+{ "OrderID" : 10889 }  
+{ "OrderID" : 10988 }  
+{ "OrderID" : 11000 }  
+{ "OrderID" : 11077 }  
 
 
 ###  Neo4j Database Exercise
