@@ -7,9 +7,7 @@
 Use single queries for these, meaning you may NOT execute one query and then execute a second, third, fourth, ....., n'th query to determine maximums, minimums or counts.
 
 1.  What are the different collections in the Northwind database?
->  \> use Northwind  
-switched to db Northwind  
-\> show collections  
+>  \> show collections  
 categories  
 customers  
 employee-territories  
@@ -85,27 +83,28 @@ territories
 { "SupplierID" : 19, "Phone" : "(617) 555-3267" }
 
 10.  What employee is responsible for the largest number of orders, and for how many orders is that employee responsible?
->  TODO
+>  \> db.orders.aggregate( [ { $group : { \_id : "$EmployeeID", count : { $sum : 1 } } }, { $sort : { count : -1 } }, { $limit : 1 } ] )  
+{ "\_id" : 4, "count" : 156 }  
 
 11.  How many territories have the RegionID value of "2"?  What are their territory descriptions? Be sure NOT to include the ID of the document, and ONLY show the territory descriptions.
->  \> db.territories.count( { RegionID: 2 } )  
-15  
-\> db.territories.find( { RegionID: 2 }, { \_id: 0, TerritoryDescription: 1 } )  
-{ "TerritoryDescription" : "Chicago" }  
-{ "TerritoryDescription" : "Denver" }  
-{ "TerritoryDescription" : "HoffmanEstates" }  
-{ "TerritoryDescription" : "ColoradoSprings" }  
-{ "TerritoryDescription" : "Phoenix" }  
-{ "TerritoryDescription" : "Scottsdale" }  
-{ "TerritoryDescription" : "SantaMonica" }  
-{ "TerritoryDescription" : "MenloPark" }  
-{ "TerritoryDescription" : "Campbell" }  
-{ "TerritoryDescription" : "SanFrancisco" }  
-{ "TerritoryDescription" : "SantaClara" }  
-{ "TerritoryDescription" : "SantaCruz" }  
-{ "TerritoryDescription" : "Redmond" }  
-{ "TerritoryDescription" : "Bellevue" }  
-{ "TerritoryDescription" : "Seattle" }  
+>  \> db.territories.aggregate( [ { $match: { "RegionID": 2 } }, { $group : { \_id : {"TerritoryDescription": "$TerritoryDescription"} } }, { $group : { \_id : null, count : { $sum: 1 }, results : { $push: "$$ROOT" } } } ] )  
+{ "\_id" : null,  
+"count" : 15,  
+"results" : [ { "\_id" : { "TerritoryDescription" : "Seattle" } },  
+{ "\_id" : { "TerritoryDescription" : "Bellevue" } },  
+{ "\_id" : { "TerritoryDescription" : "SantaCruz" } },  
+{ "\_id" : { "TerritoryDescription" : "SantaClara" } },  
+{ "\_id" : { "TerritoryDescription" : "Campbell" } },  
+{ "\_id" : { "TerritoryDescription" : "MenloPark" } },  
+{ "\_id" : { "TerritoryDescription" : "Scottsdale" } },  
+{ "\_id" : { "TerritoryDescription" : "SantaMonica" } },  
+{ "\_id" : { "TerritoryDescription" : "Phoenix" } },  
+{ "\_id" : { "TerritoryDescription" : "ColoradoSprings" } },  
+{ "\_id" : { "TerritoryDescription" : "SanFrancisco" } },  
+{ "\_id" : { "TerritoryDescription" : "HoffmanEstates" } },  
+{ "\_id" : { "TerritoryDescription" : "Denver" } },  
+{ "\_id" : { "TerritoryDescription" : "Redmond" } },  
+{ "\_id" : { "TerritoryDescription" : "Chicago" } } ] }  
 
 12.  What is the phone number of the shipper with the company name "United Package"? Be sure NOT to include the ID of the document in the output, ONLY the phone number.
 >  \> db.shippers.find( { CompanyName: "United Package" }, { \_id: 0, Phone: 1 } )  
@@ -120,27 +119,27 @@ BONUS:
 49
 
 14.  How many orders were shipped to Albuquerque, NM?  What are the order numbers? Be sure NOT to include the ID of the document in the output, ONLY the Order ID numbers.
->  \> db.orders.count( { ShipCity: "Albuquerque" } )  
-18  
-\> db.orders.find( { ShipCity: "Albuquerque" }, { \_id: 0, OrderID: 1 } )  
-{ "OrderID" : 10262 }  
-{ "OrderID" : 10272 }  
-{ "OrderID" : 10294 }  
-{ "OrderID" : 10314 }  
-{ "OrderID" : 10316 }  
-{ "OrderID" : 10346 }  
-{ "OrderID" : 10401 }  
-{ "OrderID" : 10479 }  
-{ "OrderID" : 10569 }  
-{ "OrderID" : 10564 }  
-{ "OrderID" : 10598 }  
-{ "OrderID" : 10761 }  
-{ "OrderID" : 10820 }  
-{ "OrderID" : 10852 }  
-{ "OrderID" : 10889 }  
-{ "OrderID" : 10988 }  
-{ "OrderID" : 11000 }  
-{ "OrderID" : 11077 }  
+>  \> db.orders.aggregate( [ { $match: { "ShipCity": "Albuquerque" } }, { $group : { \_id : {"OrderID": "$OrderID"} } }, { $group : { \_id : null, count : { $sum: 1 }, results : { $push: "$$ROOT" } } } ] )  
+{ "\_id" : null,  
+"count" : 18,  
+"results" : [ { "\_id" : { "OrderID" : 11000 } },  
+{ "\_id" : { "OrderID" : 10988 } },  
+{ "\_id" : { "OrderID" : 10761 } },  
+{ "\_id" : { "OrderID" : 10598 } },  
+{ "\_id" : { "OrderID" : 10564 } },  
+{ "\_id" : { "OrderID" : 10401 } },  
+{ "\_id" : { "OrderID" : 10852 } },  
+{ "\_id" : { "OrderID" : 10346 } },  
+{ "\_id" : { "OrderID" : 10316 } },  
+{ "\_id" : { "OrderID" : 10569 } },  
+{ "\_id" : { "OrderID" : 11077 } },  
+{ "\_id" : { "OrderID" : 10479 } },  
+{ "\_id" : { "OrderID" : 10272 } },  
+{ "\_id" : { "OrderID" : 10294 } },  
+{ "\_id" : { "OrderID" : 10889 } },  
+{ "\_id" : { "OrderID" : 10820 } },  
+{ "\_id" : { "OrderID" : 10314 } },  
+{ "\_id" : { "OrderID" : 10262 } } ] }  
 
 
 ###  Neo4j Database Exercise
