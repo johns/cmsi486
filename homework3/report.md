@@ -147,7 +147,7 @@ BONUS:
 Use single queries for these, meaning you may NOT execute one query and then execute a second, third, fourth, ....., n'th query to determine maximums, minimums or counts.
 
 1.  What are the different collections in the Northwind database?
->  \> CALL db.labels() YIELD label RETURN label
+>  `$ CALL db.labels() YIELD label RETURN label`
 ╒═══════════╕
 │"label"    │
 ╞═══════════╡
