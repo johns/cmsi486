@@ -148,22 +148,61 @@ Use single queries for these, meaning you may NOT execute one query and then exe
 
 1.  What are the different collections in the Northwind database?
 >  \> CALL db.labels() YIELD label RETURN label
+╒═══════════╕
+│"label"    │
+╞═══════════╡
+│"Customer" │
+├───────────┤
+│"Product"  │
+├───────────┤
+│"Supplier" │
+├───────────┤
+│"Employee" │
+├───────────┤
+│"Category" │
+├───────────┤
+│"Order"    │
+├───────────┤
+│"Territory"│
+├───────────┤
+│"Shipper"  │
+├───────────┤
+│"Orders"   │
+├───────────┤
+│"Suppliers"│
+└───────────┘
 
 2.  How many documents are in the "categories" label set?
 >  \> MATCH (n:Category) RETURN count(n)
-8
+╒══════════╕
+│"count(n)"│
+╞══════════╡
+│8         │
+└──────────┘
 
 3.  How many documents are in the "orders" label set?
 >  \> MATCH (n:Order) RETURN count(n)
-830
+╒══════════╕
+│"count(n)"│
+╞══════════╡
+│830       │
+└──────────┘
 
 4.  How many orders were handled by the person with EmployeeID number 8?
 >  \> MATCH (n:Orders) WHERE n.EmployeeID = '8' RETURN count(n)
-104
+╒══════════╕
+│"count(n)"│
+╞══════════╡
+│104       │
+└──────────┘
 
 5.  What is the last name of the employee who has the EmployeeID number 1?
 >  \> MATCH (n:Employee) WHERE n.employeeID = '1' RETURN n.lastName
-"Davolio"
+╒════════════╕
+│"n.lastName"│
+╞════════════╡
+│"Davolio"   │
+└────────────┘
 
 6.  What are the EmployeeID numbers on orders which have an OrderID less than 10300?
 >  \> MATCH (n:Orders) WHERE n.OrderID < '10300' RETURN DISTINCT n.EmployeeID
@@ -328,4 +367,49 @@ BONUS:
 >  TODO
 
 14.  How many orders were shipped to Albuquerque, NM?  What are the order numbers?
->  TODO
+> \> MATCH (n:Orders) WHERE n.ShipCity = "Albuquerque" AND n.ShipRegion = "NM" RETURN count(n)
+╒══════════╕
+│"count(n)"│
+╞══════════╡
+│18        │
+└──────────┘
+\> MATCH (n:Orders) WHERE n.ShipCity = "Albuquerque" AND n.ShipRegion = "NM" RETURN n.OrderID
+╒═══════════╕
+│"n.OrderID"│
+╞═══════════╡
+│"10262"    │
+├───────────┤
+│"10272"    │
+├───────────┤
+│"10294"    │
+├───────────┤
+│"10314"    │
+├───────────┤
+│"10316"    │
+├───────────┤
+│"10346"    │
+├───────────┤
+│"10401"    │
+├───────────┤
+│"10479"    │
+├───────────┤
+│"10564"    │
+├───────────┤
+│"10569"    │
+├───────────┤
+│"10598"    │
+├───────────┤
+│"10761"    │
+├───────────┤
+│"10820"    │
+├───────────┤
+│"10852"    │
+├───────────┤
+│"10889"    │
+├───────────┤
+│"10988"    │
+├───────────┤
+│"11000"    │
+├───────────┤
+│"11077"    │
+└───────────┘
